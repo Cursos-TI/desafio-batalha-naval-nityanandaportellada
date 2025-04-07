@@ -4,12 +4,15 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
 
+#include <stdio.h>
+#include <stdlib.h>
+
 #define TAM 10
 
-void exibirTabuleiro(int tabuleiro[TAM][TAM]) {
-    for (int i = 0; i < TAM; i++) {
-        for (int j = 0; j < TAM; j++) {
-            printf("%d ", tabuleiro[i][j]);
+void exibirTabuleiro(int linhas, int colunas, int tabuleiro[linhas][colunas]) {
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            printf("%d ", tabuleiro[i][j] ? 1 : 0);
         }
         printf("\n");
     }
@@ -74,7 +77,7 @@ int main() {
     }
 
     printf("Tabuleiro com navios (3 = navio, 0 = vazio):\n");
-    exibirTabuleiro(tabuleiro);
+    exibirTabuleiro(TAM, TAM, tabuleiro);
 
     // Matrizes de habilidades
     int cruz[5][5], cone[5][5], octaedro[5][5];
@@ -84,13 +87,13 @@ int main() {
     habilidadeOctaedro(octaedro);
 
     printf("Habilidade - Cruz:\n");
-    exibirTabuleiro(cruz);
+    exibirTabuleiro(5, 5, cruz);
 
     printf("Habilidade - Cone:\n");
-    exibirTabuleiro(cone);
+    exibirTabuleiro(5, 5, cone);
 
     printf("Habilidade - Octaedro:\n");
-    exibirTabuleiro(octaedro);
+    exibirTabuleiro(5, 5, octaedro);
 
     return 0;
 }
